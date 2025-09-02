@@ -55,9 +55,9 @@
             </p>
             <div class="project-tech">
               <span class="tech-tag">Python</span>
-              <span class="tech-tag">LangCahin</span>
+              <span class="tech-tag">LangChain</span>
               <span class="tech-tag">HuggingFace</span>
-              <span class="tech-tag">CrhomaDB</span>
+              <span class="tech-tag">ChromaDB</span>
             </div>
             <div class="project-links">
               <a
@@ -65,14 +65,18 @@
                 target="_blank"
                 >GitHub</a
               >
+              <!-- Add in when needed
               <a
                 href="https://nbviewer.org/github/NJiHin/your-project-repo/blob/main/analysis.ipynb"
                 class="notebook"
                 target="_blank"
                 >Notebook</a
               >
-              <a href="#" class="notes" onclick="openNotesModal('matlab-rag')">Notes</a>
               <a href="#" class="demo" target="_blank">Live Demo</a>
+            -->
+              <a href="#" class="notes" onclick="openNotesModal('matlab-rag-1')"
+                >Notes</a
+              >
             </div>
           </div>
 
@@ -106,38 +110,42 @@
           }
           const markdownContent = await response.text();
           const htmlContent = marked.parse(markdownContent);
-          document.getElementById('notesContentContainer').innerHTML = 
-            `<div class="notes-content">${htmlContent}</div>`;
+          document.getElementById(
+            "notesContentContainer"
+          ).innerHTML = `<div class="notes-content">${htmlContent}</div>`;
         } catch (error) {
-          console.error('Failed to load notes content:', error);
-          document.getElementById('notesContentContainer').innerHTML = 
-            `<div class="notes-content">
+          console.error("Failed to load notes content:", error);
+          document.getElementById(
+            "notesContentContainer"
+          ).innerHTML = `<div class="notes-content">
               <p><strong>Notes not available</strong></p>
               <p>Notes for this project haven't been created yet.</p>
-              <p><em>Expected file: notes/${projectId || 'unknown'}.md</em></p>
-              <p><em>Tip: Copy notes/template.md to notes/${projectId || 'unknown'}.md to get started!</em></p>
+              <p><em>Expected file: notes/${projectId || "unknown"}.md</em></p>
+              <p><em>Tip: Copy notes/template.md to notes/${
+                projectId || "unknown"
+              }.md to get started!</em></p>
             </div>`;
         }
       }
 
-      function openNotesModal(projectId = 'default') {
+      function openNotesModal(projectId = "default") {
         loadNotesContent(projectId);
-        document.getElementById('notesModal').style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        document.getElementById("notesModal").style.display = "block";
+        document.body.style.overflow = "hidden";
       }
 
       function closeNotesModal() {
-        document.getElementById('notesModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
+        document.getElementById("notesModal").style.display = "none";
+        document.body.style.overflow = "auto";
       }
 
       // Close modal when clicking outside of it
-      window.onclick = function(event) {
-        const modal = document.getElementById('notesModal');
+      window.onclick = function (event) {
+        const modal = document.getElementById("notesModal");
         if (event.target === modal) {
           closeNotesModal();
         }
-      }
+      };
     </script>
   </body>
 </html>
