@@ -3,17 +3,17 @@ An extremely eye opening experiencing creating my first RAG and how deep into ea
 A very straightforward pipeline/ architecture was implemented, with a focus on implementation using LangChain  and locally hosted LLMs downloaded from HuggingFace.
 
 Use local model from HF quantised with Bitsandbytes  
-↓
+↓  
 Ingest pdf with some preprocessing using PyMuPDF  
-↓
+↓  
 chunk the text  
-↓
+↓  
 run through a local embeddings model, also downloaded from HF  
-↓
+↓  
 Embed the pdf and save into ChromaDB vectorstore  
-↓
+↓  
 define prompt  
-↓
+↓  
 retrieval and generation using LangChain  
 
 ---
