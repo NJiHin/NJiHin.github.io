@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NJiHin - AI Engineering Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
     <header>
@@ -45,9 +44,10 @@
         <div class="projects-container">
           <!-- Example project - replace this with your actual projects -->
           <div class="project-card">
-            <h3>MATLAB RAG</h3>
+            <h3>Local RAG</h3>
             <p class="project-description">
-              Created my first RAG that uses MATLAB documentation as the
+              Locally hosted RAG assistant for MATLAB-syntax Q&A on a single RTX 3060 Ti 8 GB setup.
+            </br> Created my first RAG that uses MATLAB documentation as the
               knowledge base. Models are downloaded from HuggingFace and
               Quantized using BitsandBytes. Some basic data preprocessing with
               PyMuPDF was implemented on a separate pipeline. ChromaDB was
@@ -74,8 +74,8 @@
               >
               <a href="#" class="demo" target="_blank">Live Demo</a>
             -->
-              <a href="#" class="notes" onclick="openNotesModal('matlab-rag-1')"
-                >Notes</a
+              <a href="blog-templates/matlab-rag-1-blog.html" class="read-more-btn"
+                >Read More</a
               >
             </div>
           </div>
@@ -89,63 +89,6 @@
       <p>&copy; 2025 NJiHin. Built with GitHub Pages.</p>
     </footer>
 
-    <!-- Notes Modal -->
-    <div id="notesModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeNotesModal()">&times;</span>
-        <h2>Project Notes & Reflections</h2>
-        <div id="notesContentContainer">
-          <!-- Content will be loaded dynamically -->
-        </div>
-      </div>
-    </div>
 
-    <script>
-      async function loadNotesContent(projectId) {
-        try {
-          const filename = `notes/${projectId}.md`;
-          const response = await fetch(filename);
-          if (!response.ok) {
-            throw new Error(`Notes file not found: ${filename}`);
-          }
-          const markdownContent = await response.text();
-          const htmlContent = marked.parse(markdownContent);
-          document.getElementById(
-            "notesContentContainer"
-          ).innerHTML = `<div class="notes-content">${htmlContent}</div>`;
-        } catch (error) {
-          console.error("Failed to load notes content:", error);
-          document.getElementById(
-            "notesContentContainer"
-          ).innerHTML = `<div class="notes-content">
-              <p><strong>Notes not available</strong></p>
-              <p>Notes for this project haven't been created yet.</p>
-              <p><em>Expected file: notes/${projectId || "unknown"}.md</em></p>
-              <p><em>Tip: Copy notes/template.md to notes/${
-                projectId || "unknown"
-              }.md to get started!</em></p>
-            </div>`;
-        }
-      }
-
-      function openNotesModal(projectId = "default") {
-        loadNotesContent(projectId);
-        document.getElementById("notesModal").style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeNotesModal() {
-        document.getElementById("notesModal").style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-
-      // Close modal when clicking outside of it
-      window.onclick = function (event) {
-        const modal = document.getElementById("notesModal");
-        if (event.target === modal) {
-          closeNotesModal();
-        }
-      };
-    </script>
   </body>
 </html>

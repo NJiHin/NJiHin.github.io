@@ -217,14 +217,14 @@ h2 {
     background: #d35400;
 }
 
-.project-links a.notes {
-    background: #8e44ad;
+.project-links a.read-more-btn {
+    background: #ff7215;
     color: white;
-    border-color: #8e44ad;
+    border-color: #ff7215;
 }
 
-.project-links a.notes:hover {
-    background: #9b59b6;
+.project-links a.read-more-btn:hover {
+    background: #e16512;
     cursor: pointer;
 }
 
@@ -242,129 +242,6 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 2rem;
-    border: none;
-    border-radius: 12px;
-    width: 95%;
-    max-width: 1200px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    position: relative;
-    animation: modalSlideIn 0.3s ease-out;
-}
-
-@keyframes modalSlideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close:hover,
-.close:focus {
-    color: #2c3e50;
-}
-
-.modal-content h2 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    font-size: 1.8rem;
-}
-
-.notes-content {
-    color: #555;
-    line-height: 1.7;
-}
-
-.notes-content p {
-    margin-bottom: 1rem;
-}
-
-.notes-content ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-}
-
-.notes-content li {
-    margin-bottom: 0.5rem;
-}
-
-.notes-content em {
-    color: #888;
-    font-size: 0.9rem;
-}
-
-.notes-content h3 {
-    color: #2c3e50;
-    font-size: 1.3rem;
-    margin: 1.5rem 0 0.75rem 0;
-    font-weight: 600;
-}
-
-.notes-content h4 {
-    color: #34495e;
-    font-size: 1.1rem;
-    margin: 1.25rem 0 0.5rem 0;
-    font-weight: 600;
-}
-
-.notes-content strong {
-    color: #2c3e50;
-    font-weight: 600;
-}
-
-/* Improve scrollbar appearance */
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -387,17 +264,5 @@ footer p {
     
     main {
         padding: 0 1rem;
-    }
-    
-    .modal-content {
-        margin: 10% auto;
-        width: 98%;
-        max-width: none;
-        max-height: 85vh;
-        padding: 1.5rem;
-    }
-    
-    .modal-content h2 {
-        font-size: 1.5rem;
     }
 }
