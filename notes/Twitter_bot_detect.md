@@ -16,6 +16,8 @@ of 19 features with a mixture of categorical and numerical features (see Appendi
 
 The following pipeline and methodology allowed me to place first in the Kaggle competition amongst 117 other competitors.
 
+<img src="Twitter_bot_detect_images/leaderboard.png" alt="Leaderboard" width="500">
+
 # 2. Methodology
 
 ## 2.1 Data preprocessing and feature engineering
