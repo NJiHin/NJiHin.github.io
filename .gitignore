@@ -1,6 +1,4 @@
 # Development and documentation files
-CLAUDE.md
-progress.md
 project-template.html
 
 # Temporary files
@@ -13,6 +11,7 @@ project-template.html
 .claude/
 *.swp
 *.swo
+doc_processing/
 
 # OS generated files
 .DS_Store
