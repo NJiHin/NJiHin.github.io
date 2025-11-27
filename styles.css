@@ -208,13 +208,14 @@ h2 {
 }
 
 .project-links a.notebook {
-    background: #e67e22;
-    color: white;
-    border-color: #e67e22;
+    background: transparent;
+    color: #ff7215;
+    border: 2px solid #ff7215;
 }
 
 .project-links a.notebook:hover {
-    background: #d35400;
+    background: #ff7215;
+    color: white;
 }
 
 .project-links a.read-more-btn {

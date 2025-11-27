@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Bot Detection - NJiHin</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      .blog-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+        line-height: 1.6;
+      }
+
+      .blog-header {
+        border-bottom: 2px solid #333;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .blog-title {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-meta {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .blog-content {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        color: #333;
+      }
+
+      .blog-content h1, .blog-content h2, .blog-content h3 {
+        color: #222;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+
+      .blog-content h1 {
+        font-size: 2rem;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 0.5rem;
+      }
+
+      .blog-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .blog-content h3 {
+        font-size: 1.3rem;
+      }
+
+      .blog-content p {
+        margin-bottom: 1rem;
+      }
+
+      .blog-content code {
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+      }
+
+      .blog-content pre {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 1rem 0;
+      }
+
+      .blog-content pre code {
+        background: none;
+        padding: 0;
+      }
+
+      .blog-content blockquote {
+        border-left: 4px solid #007bff;
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        background-color: #f9f9f9;
+        padding: 1rem;
+      }
+
+      .blog-content ul, .blog-content ol {
+        margin: 1rem 0;
+        padding-left: 2rem;
+      }
+
+      .blog-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1.5rem auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .blog-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      .blog-content table th,
+      .blog-content table td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+      }
+
+      .blog-content table th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+      }
+
+      .blog-content table tr:nth-child(even) {
+        background-color: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>NJiHin</h1>
+        <ul>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="blog-container">
+        <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+        <div class="blog-header">
+          <h1 class="blog-title">Twitter Bot Detection</h1>
+          <div class="blog-meta">Machine Learning Pipeline for Twitter Bot Detection</div>
+        </div>
+
+        <div class="blog-content" id="blogContent">
+          <!-- Content will be loaded dynamically -->
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NJiHin. Built with GitHub Pages.</p>
+    </footer>
+
+    <script>
+      async function loadBlogContent(markdownFile) {
+        try {
+          const response = await fetch(markdownFile);
+          if (!response.ok) {
+            throw new Error(`Markdown file not found: ${markdownFile}`);
+          }
+          const markdownContent = await response.text();
+          const htmlContent = marked.parse(markdownContent);
+          document.getElementById('blogContent').innerHTML = htmlContent;
+
+          // Fix image paths to be relative to the notes folder
+          const images = document.querySelectorAll('#blogContent img');
+          images.forEach(img => {
+            const src = img.getAttribute('src');
+            if (src && src.startsWith('Twitter_bot_detect_images/')) {
+              img.setAttribute('src', '../notes/' + src);
+            }
+          });
+        } catch (error) {
+          console.error('Failed to load blog content:', error);
+          document.getElementById('blogContent').innerHTML = `
+            <div class="error-message">
+              <h2>Content Not Available</h2>
+              <p>Sorry, the blog content could not be loaded at this time.</p>
+              <p><em>Error: ${error.message}</em></p>
+            </div>
+          `;
+        }
+      }
+
+      // Load the Twitter bot detection markdown file
+      loadBlogContent('../notes/Twitter_bot_detect.md');
+    </script>
+  </body>
+</html>
